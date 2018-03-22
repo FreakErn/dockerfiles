@@ -8,6 +8,6 @@ RUN        git clone https://github.com/magi-project/m-cpuminer-v2.git /m-cpumin
 
 WORKDIR        /m-cpuminer-v2
 
-RUN       export OBJECT_MODE=64 && ./autogen.sh && ./configure CFLAGS="-O3" CXXFLAGS="-O3" && make -j8
+RUN       cd /m-cpuminer-v2 && export OBJECT_MODE=64 && ./autogen.sh && ./configure CFLAGS="-O3" CXXFLAGS="-O3" && make -j 8
 
-ENTRYPOINT    ["./m-minerd"]
+ENTRYPOINT    ["/m-cpuminer-v2/m-minerd"]
