@@ -1,4 +1,4 @@
-from hypriot/rpi-node:6
+FROM hypriot/rpi-node:6
 
 MAINTAINER  FreakErn git@freakern.de
 
