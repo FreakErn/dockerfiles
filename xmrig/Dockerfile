@@ -1,3 +1,4 @@
+ARG XMRIG_VERSION=v5.4.0
 FROM  alpine:latest
 RUN   adduser -S -D -H -h /xmrig miner
 RUN   apk --no-cache upgrade && \
@@ -9,6 +10,7 @@ RUN   apk --no-cache upgrade && \
         openssl-dev && \
       git clone https://github.com/xmrig/xmrig && \
       cd xmrig && \
+      git checkout ${XMRIG_VERSION} && \  
       mkdir build && \
       cmake -DCMAKE_BUILD_TYPE=Release -DWITH_HWLOC=OFF . && \
       make -j$(nproc) && \
